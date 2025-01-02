@@ -1,7 +1,8 @@
+#include <QColor>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include <QQuickView>
+
 
 int main(int argc, char *argv[])
 {
@@ -9,9 +10,10 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     // Passed a QString, QSize, and QColor to QML.
+    // The root context is the global namespace for the application.
     engine.rootContext()->setContextProperty("_aString", QString("This is a string"));
     engine.rootContext()->setContextProperty("_aSize", QSize(800, 600));
-    engine.rootContext()->setContextProperty("_background", QColor(Qt::lightGray));
+    engine.rootContext()->setContextProperty("_background", QColor(Qt::gray));
 
     QObject::connect(
         &engine,
