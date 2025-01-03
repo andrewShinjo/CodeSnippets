@@ -1,0 +1,44 @@
+cmake_minimum_required(VERSION 3.16)
+
+project(subclass-qabstractitemmodel-example VERSION 0.1 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(Qt6 REQUIRED COMPONENTS Quick)
+
+qt_standard_project_setup(REQUIRES 6.5)
+
+qt_add_executable(appsubclass-qabstractitemmodel-example
+    main.cpp
+)
+
+qt_add_qml_module(appsubclass-qabstractitemmodel-example
+    URI subclass-qabstractitemmodel-example
+    VERSION 1.0
+    QML_FILES
+        Main.qml
+        SOURCES treemodel.h treemodel.cpp
+        SOURCES treeitem.h treeitem.cpp
+)
+
+# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
+# If you are developing for iOS or macOS you should consider setting an
+# explicit, fixed bundle identifier manually though.
+set_target_properties(appsubclass-qabstractitemmodel-example PROPERTIES
+#    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appsubclass-qabstractitemmodel-example
+    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+    MACOSX_BUNDLE TRUE
+    WIN32_EXECUTABLE TRUE
+)
+
+target_link_libraries(appsubclass-qabstractitemmodel-example
+    PRIVATE Qt6::Quick
+)
+
+include(GNUInstallDirs)
+install(TARGETS appsubclass-qabstractitemmodel-example
+    BUNDLE DESTINATION .
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)
