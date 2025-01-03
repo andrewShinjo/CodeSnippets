@@ -2,9 +2,8 @@
 
 
 TreeModel::TreeModel(QObject *parent)
-    : QAbstractItemModel(parent)
+    : QAbstractItemModel(parent), rootItem(std::make_unique<TreeItem>(TreeItem("Root node")))
 {
-    rootItem = std::make_unique<TreeItem>(TreeItem("Root node"));
 
     std::unique_ptr<TreeItem> child1 = std::make_unique<TreeItem>(TreeItem("Child 1", rootItem.get()));
     std::unique_ptr<TreeItem> child11 = std::make_unique<TreeItem>(TreeItem("Child 1.1", child1.get()));
