@@ -11,7 +11,6 @@ Window {
     TreeView
     {
         anchors.fill: parent
-
         model: _treeModel
         delegate: TreeViewDelegate {}
     }
