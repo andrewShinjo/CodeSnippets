@@ -1,5 +1,5 @@
-#ifndef TREEITEM_H
-#define TREEITEM_H
+#ifndef TREEITEM_COPY_H
+#define TREEITEM_COPY_H
 
 #include <QStringList>
 
@@ -24,4 +24,4 @@ private:
 
 };
 
-#endif // TREEITEM_H
+#endif // TREEITEM_COPY_H

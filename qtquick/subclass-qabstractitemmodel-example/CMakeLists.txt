@@ -17,8 +17,14 @@ qt_add_qml_module(appsubclass-qabstractitemmodel-example
     VERSION 1.0
     QML_FILES
         Main.qml
-        SOURCES treemodel.h treemodel.cpp
-        SOURCES treeitem.h treeitem.cpp
+        SOURCES
+        SOURCES
+        SOURCES
+        SOURCES
+        SOURCES readonlymodel.h readonlymodel.cpp
+        SOURCES node.h node.cpp
+        SOURCES editablemodel.h editablemodel.cpp
+        SOURCES insertremovemodel.h insertremovemodel.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

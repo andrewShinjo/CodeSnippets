@@ -10,7 +10,7 @@ Window {
     TreeView
     {
         anchors.fill: parent
-        model: _treeModel
+        model: _model
         delegate: TreeViewDelegate {}
     }
 }
